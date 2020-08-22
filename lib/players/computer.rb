@@ -38,7 +38,7 @@ module Players
         if close_to_winning
           win_blocker = close_to_winning.find{|cell| board.cells[cell] == " "}
           next_move = win_blocker + 1
-        elsif !close_to_winning
+        else
           all_options = []
 
           board.cells.each_with_index do |cell, index|
