@@ -63,7 +63,7 @@ class Game
   end
 
   def turn
-    board.display
+    #board.display
     puts "\nTurn #{board.turn_count + 1}"
     puts "Player #{current_player.token}, please enter 1-9:"
     input = current_player.move(board)
