@@ -62,14 +62,6 @@ class Game
     end
   end
 
-  # def change_player
-  #   if current_player == player_1
-  #     current_player =
-  #   elsif current_player == player_2
-  #
-  #   end
-  # end
-
   def turn
     board.display
     puts "\nTurn #{board.turn_count + 1}"
@@ -83,7 +75,7 @@ class Game
       #board.display
       turn
     end
-    #board.display
+    board.display
   end
 
   def play
