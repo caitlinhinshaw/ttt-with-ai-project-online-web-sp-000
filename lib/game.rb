@@ -1,4 +1,3 @@
-require 'pry'
 class Game
   WIN_COMBINATIONS = [
     [0,1,2], # Top row
@@ -32,7 +31,6 @@ class Game
   end
 
   def current_player
-    #binding.pry
     @board.turn_count.even? ? @player_1 : @player_2
   end
 
@@ -56,7 +54,6 @@ class Game
   end
 
   def winner
-    #binding.pry
     if won?
       @board.cells[won?[0]]
     end
@@ -71,10 +68,8 @@ class Game
     input = current_player.move(board)
     if board.valid_move?(input)
       board.update(input, current_player)
-      #board.display
     else
       puts "#{input} is not a valid move. Please enter 1-9:"
-      #board.display
       turn
     end
     board.display
