@@ -36,7 +36,7 @@ module Players
         end
 
         if close_to_winning
-          win_blocker = close_to_winning.detect{|cell| board.cells[cell] == " "}
+          win_blocker = close_to_winning.find{|cell| board.cells[cell] == " "}
           next_move = win_blocker + 1
         elsif !close_to_winning
           all_options = []
@@ -47,53 +47,9 @@ module Players
 
           next_move = all_options[rand(all_options.length)]
         end
+
         next_move.to_s
       end
     end
   end
-  #   def move(board)
-  #     # if board.empty?(4)
-  #     #   "5"
-  #     # elsif board.empty?(0)
-  #     #   "1"
-  #     # elsif board.empty?(2)
-  #     #   "3"
-  #     # elsif board.empty?(6)
-  #     #   "7"
-  #     # elsif board.empty?(8)
-  #     #   "9"
-  #     # elsif board.empty?(1)
-  #     #   "2"
-  #     # elsif board.empty?(3)
-  #     #   "4"
-  #     # elsif board.empty?(5)
-  #     #   "6"
-  #     # elsif board.empty?(7)
-  #     #   "8"
-  #     # end
-  #     if board.cells[4] == " "
-  #       "5"
-  #     elsif board.cells[0] == " "
-  #       "1"
-  #     elsif board.cells[2] == " "
-  #       "3"
-  #     elsif board.cells[6] == " "
-  #       "7"
-  #     elsif board.cells[8] == " "
-  #       "9"
-  #     elsif board.cells[1] == " "
-  #       "2"
-  #     elsif board.cells[3] == " "
-  #       "4"
-  #     elsif board.cells[5] == " "
-  #       "6"
-  #     elsif board.cells[7] == " "
-  #       "8"
-  #     end
-  #
-  #
-  #
-  #
-  #   end
-  # end
 end
