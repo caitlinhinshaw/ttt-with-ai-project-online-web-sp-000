@@ -13,16 +13,16 @@ module Players
 
     def move(board)
       current = nil
-      diagonals = [1,3,7,9]
+      corners = [1,3,7,9]
       case board.turn_count
       when 0
         "5"
       when 1
-        current = diagonals[rand(4)]
+        current = corners[rand(4)]
         current.to_s
       when 2
         current = board.cells.index("O") + 1
-        turn_three_options = diagonals
+        turn_three_options = corners
         turn_three_options.delete(current) #removes corner already occupied by player 2 from possibilities
         turn_three_options.delete(10 - current) #removes the corner across from player 2's corner
         current = turn_three_options[rand(2)]
