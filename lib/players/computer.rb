@@ -13,23 +13,22 @@ module Players
 
     def move(board)
       current = nil
-      turn_two = [1,3,7,9]
-      #all_options = [1,2,3,4,5,6,7,8,9]
+      diagonals = [1,3,7,9]
       case board.turn_count
       when 0
         "5"
       when 1
-        current = turn_two[rand(4)]
+        current = diagonals[rand(4)]
         current.to_s
       when 2
         current = board.cells.index("O") + 1
-        turn_three = turn_two
-        turn_three.delete(current) #removes corner already occupied by player 2 from possibilities
-        turn_three.delete(10 - current) #removes the corner across from player 2's corner
-        current = turn_three[rand(2)]
+        turn_three_options = diagonals
+        turn_three_options.delete(current) #removes corner already occupied by player 2 from possibilities
+        turn_three_options.delete(10 - current) #removes the corner across from player 2's corner
+        current = turn_three_options[rand(2)]
         current.to_s
       when 3..8
-        close_to_winning = WIN_COMBINATIONS.detect do |combo|
+        close_to_winning = WIN_COMBINATIONS.find do |combo|
           ((board.cells[combo[0]] == board.cells[combo[1]] && board.cells[combo[2]] == " ") ||
           (board.cells[combo[0]] == board.cells[combo[2]] && board.cells[combo[1]] == " ") ||
           (board.cells[combo[1]] == board.cells[combo[2]] && board.cells[combo[0]] == " ")) &&
